@@ -1,0 +1,46 @@
+<%= form_for @regular_pionner, :html => { :class => "form-horizont regular_pionner" } do |f| %>
+
+    <% if @regular_pionner.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@regular_pionner.errors.count, "error") %> prohibited this regular_pionner from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @regular_pionner.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group col-lg-12">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, placeholder: 'Selecione o Pioneiro Regular', :class => 'form-control' %>
+    </div>
+    <%= error_span(@regular_pionner[:name]) %>
+  </div>
+  <div class="form-group col-lg-6">
+    <%= f.label :designation_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :designation_date, placeholder: 'Data de designação do Pioneiro Regular', :class => 'form-control datepicker' %>
+    </div>
+    <%= error_span(@regular_pionner[:designation_date]) %>
+  </div>
+  <div class="form-group col-lg-6">
+    <%= f.label :removal_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :removal_date, placeholder: 'Data de remoção do Pioneiro Regular', :class => 'form-control datepicker' %>
+    </div>
+    <%= error_span(@regular_pionner[:removal_date]) %>
+  </div>
+  <br/>
+  <br/>
+  <div class="control-group col-lg-5">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            regular_pionners_path, :class => 'btn btn-warning' %>
+  </div>
+<% end %>

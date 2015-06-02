@@ -1,0 +1,44 @@
+pt-BR:
+  activerecord:
+    models:
+      person:
+        one: Pessoa
+        other: Pessoas
+      regular_pionner:
+        one: Pioneiro Regular
+        other: Pioneiros Regulares
+      elder:
+        one: Ancião
+        other: 
+      ministerial_servant:
+        one: Servo Ministerial
+        other: Servos Ministeriais
+    attributes:
+      person:
+        name: Nome
+        sex: Sexo
+        birth_date: Data Nascimento
+        baptism_date: Data Batismo
+        hope: Esperança
+        phone: Telefone
+        cell_phone: Telefone Celular
+        address: Endereço
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        postal_code: Cep
+      regular_pionner:
+        name: Nome
+        designation_date: Data Designação
+        removal_date: Data Remoção
+      elder:
+        designation_date: Data Designação
+        removal_date: Data Remoção
+      ministerial_servant:
+        designation_date: Data Designação
+        removal_date: Data Remoção
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  

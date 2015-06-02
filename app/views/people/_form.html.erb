@@ -1,0 +1,121 @@
+<%= form_for @person, :html => { :class => "form-horizont person" } do |f| %>
+
+    <% if @person.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @person.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group col-lg-10">
+    <%= f.label :name, :class => 'control-label'%>
+    <div class="controls">
+      <%= f.text_field :name, placeholder: 'Nome do publicador', :class => 'form-control' %>
+    </div>
+    <%= error_span(@person[:name]) %>
+  </div>
+  <div class="form-group col-lg-2">
+    <%= f.label :sex, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :sex, (["M","F"]), {}, :class => "form-control"%>
+    </div>
+    <%= error_span(@person[:sex]) %>
+  </div>
+  <div class="form-group col-lg-5">
+    <%= f.label :birth_date, :class => 'control-label' %>
+    <div class="controls" >
+    <%= f.text_field :birth_date, placeholder: 'Data de nascimento do publicador', :class => 'form-control datepicker' %>
+   </div>
+    <%= error_span(@person[:birth_date]) %>
+  </div>
+  <div class="form-group col-lg-5">
+    <%= f.label :baptism_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :baptism_date, placeholder: 'Data de batismo do publicador', :class => 'form-control datepicker' %>
+    </div>
+    <%= error_span(@person[:baptism_date]) %>
+  </div>
+  <div class="form-group col-lg-2">
+    <%= f.label :hope, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :hope, (["o.o","U"]), {}, :class => "form-control"%>
+    </div>
+    <%= error_span(@person[:hope]) %>
+  </div>
+  <div class="form-group col-lg-6">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, placeholder: 'Telefone residencial', :class => 'form-control phone' %>
+    </div>
+    <%= error_span(@person[:phone]) %>
+  </div>
+  <div class="form-group col-lg-6">
+    <%= f.label :cell_phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cell_phone, placeholder: 'Telefone celular ', :class => 'form-control cell' %>
+    </div>
+    <%= error_span(@person[:cell_phone]) %>
+  </div>
+  <div class="form-group col-lg-10">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address,  placeholder: 'Endereço do publicador', :class => 'form-control' %>
+    </div>
+    <%= error_span(@person[:address]) %>
+  </div>
+  <div class="form-group col-lg-2">
+    <%= f.label :number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :number,  placeholder: 'Número' ,:class => 'form-control' %>
+    </div>
+    <%= error_span(@person[:number]) %>
+  </div>
+  <div class="form-group col-lg-3">
+    <%= f.label :neighborhood, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :neighborhood, (["Alvorada","Ant. Paiva Cantelmo","Centro","Industrial","Marrecas","Mini-Guaçu","Nova Conquista","Nsa Sra Aparecida","São Cristovão","Sessão São Miguel","Vila Nova"]), {:include_blank => '-- Selecione o Bairro --'}, :class => "form-control"  %>
+    </div>
+    <%= error_span(@person[:neighborhood]) %>
+  </div>
+  <div class="form-group col-lg-3">
+    <%= f.label :city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :city, (["Francisco Beltrão","Flor da Serra do Sul","Marmeleiro"]), {:include_blank => '-- Selecione a Cidade --'}, :class => "form-control"%>
+    </div>
+    <%= error_span(@person[:city]) %>
+  </div>
+  <div class="form-group col-lg-3">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :state, (["Paraná"]), {:include_blank => '-- Selecione o Estado --'}, :class => "form-control"%>
+    </div>
+    <%= error_span(@person[:state]) %>
+  </div>
+  <div class="form-group col-lg-3">
+    <%= f.label :postal_code, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :postal_code,  placeholder: 'Cep', :class => 'form-control postal' %>
+    </div>
+    <%= error_span(@person[:postal_code]) %>
+  </div>
+  <br/>
+  <br/>
+  <div class="control-group col-lg-3">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            people_path, :class => 'btn btn-warning' %>
+  <!-- <div class="form-group"> -->
+  </div>
+ 
+  <!-- </div>  -->
+
+
+<% end %>

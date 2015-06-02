@@ -1,0 +1,38 @@
+<%- model_class = RegularPionner -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
+</div>
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:designation_date) %></th>
+      <th><%= model_class.human_attribute_name(:removal_date) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @regular_pionners.each do |regular_pionner| %>
+      <tr>
+        <td><%= link_to regular_pionner.id, regular_pionner_path(regular_pionner) %></td>
+        <td><%= regular_pionner.name %></td>
+        <td><%= l(regular_pionner.designation_date) %></td>
+        <td><%= l(regular_pionner.removal_date) %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_regular_pionner_path(regular_pionner), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      regular_pionner_path(regular_pionner),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_regular_pionner_path,
+            :class => 'btn btn-primary' %>

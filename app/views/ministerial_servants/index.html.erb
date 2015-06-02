@@ -1,0 +1,37 @@
+<%- model_class = MinisterialServant -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:person_id) %></th>
+      <th><%= model_class.human_attribute_name(:designation_date) %></th>
+      <th><%= model_class.human_attribute_name(:removal_date) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ministerial_servants.each do |ministerial_servant| %>
+      <tr>
+        <td><%= link_to ministerial_servant.id, ministerial_servant_path(ministerial_servant) %></td>
+        <td><%= ministerial_servant.person_id %></td>
+        <td><%= ministerial_servant.designation_date %></td>
+        <td><%= ministerial_servant.removal_date %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ministerial_servant_path(ministerial_servant), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ministerial_servant_path(ministerial_servant),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ministerial_servant_path,
+            :class => 'btn btn-primary' %>

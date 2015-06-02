@@ -1,0 +1,45 @@
+<%= form_for @ministerial_servant, :html => { :class => "form-horizontal ministerial_servant" } do |f| %>
+
+    <% if @ministerial_servant.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ministerial_servant.errors.count, "error") %> prohibited this ministerial_servant from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @ministerial_servant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :person_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :person_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ministerial_servant[:person_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :designation_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :designation_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ministerial_servant[:designation_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :removal_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :removal_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ministerial_servant[:removal_date]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            ministerial_servants_path, :class => 'btn btn-default' %>
+
+<% end %>
