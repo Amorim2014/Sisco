@@ -14,8 +14,7 @@
   <tbody>
     <% @ministerial_servants.each do |ministerial_servant| %>
       <tr>
-        <td><%= link_to ministerial_servant.id, ministerial_servant_path(ministerial_servant) %></td>
-        <td><%= ministerial_servant.person_id %></td>
+        <td><%= link_to ministerial_servant.person,ministerial_servant_path(ministerial_servant) %></td>
         <td><%= ministerial_servant.designation_date %></td>
         <td><%= ministerial_servant.removal_date %></td>
         <td>

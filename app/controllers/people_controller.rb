@@ -70,9 +70,9 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params[:phone].gsub!(/[() -]/, '') if params[:phone].present?
-      params[:cell_phone] = params[:cell_phone].gsub(/[() -]/, '') if params[:cell_phone].present?
-      params[:postal_code] = params[:postal_code].gsub(/[- ]/, '') if params[:postal_code].present? 
+      params[:person][:phone].gsub!(/[() -]/, '') if params[:person][:phone].present?
+      params[:person][:cell_phone].gsub!(/[() -]/, '') if params[:person][:cell_phone].present?
+      params[:person][:postal_code].gsub!(/[- ]/, '') if params[:person][:postal_code].present? 
       params.require(:person).permit(:name, :sex, :birth_date, :baptism_date, :hope, :phone, :cell_phone, :address, :number, :neighborhood, :city, :state, :postal_code)
     end
 end

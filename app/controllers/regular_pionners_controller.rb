@@ -69,6 +69,6 @@ class RegularPionnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def regular_pionner_params
-      params.require(:regular_pionner).permit(:name, :designation_date, :removal_date)
+      params.require(:regular_pionner).permit(:person_id , :designation_date, :removal_date)
     end
 end

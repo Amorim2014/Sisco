@@ -18,8 +18,7 @@
   <div class="form-group col-lg-12">
     <%= f.label :people_id, :class => 'control-label' %>
     <div class="controls">
-    <%=select("elder", "people_id", Person.all.collect {|p| [p.name, p.id]}, {include_blank: 'Selecione o nome do ancião'}, {:class => 'form-control'})%>
-    
+    <%= select("elder", "person_id", Person.all.collect {|p| [p.name, p.name]}, {include_blank: 'Selecione o nome do Ancião'}, {:class => 'form-control'})%>
     </div>
     <%= error_span(@elder[:people_id]) %>
   </div>

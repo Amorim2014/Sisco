@@ -1,1 +1,1 @@
-json.extract! @regular_pionner, :id, :name, :designation_date, :removal_date, :created_at, :updated_at
+json.extract! @regular_pionner, :id, :person_id, :designation_date, :removal_date, :created_at, :updated_at

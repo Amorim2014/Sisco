@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505185901) do
+ActiveRecord::Schema.define(version: 20160118220236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "elders", force: :cascade do |t|
-    t.integer  "people_id"
+    t.integer  "person_id"
     t.date     "designation_date"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.date     "removal_date"
   end
 
-  add_index "elders", ["people_id"], name: "index_elders_on_people_id", using: :btree
+  add_index "elders", ["person_id"], name: "index_elders_on_person_id", using: :btree
 
   create_table "ministerial_servants", force: :cascade do |t|
     t.integer  "person_id"
@@ -55,13 +55,16 @@ ActiveRecord::Schema.define(version: 20150505185901) do
   end
 
   create_table "regular_pionners", force: :cascade do |t|
-    t.string   "name"
     t.date     "designation_date"
     t.date     "removal_date"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "person_id"
   end
 
-  add_foreign_key "elders", "people", column: "people_id"
+  add_index "regular_pionners", ["person_id"], name: "index_regular_pionners_on_person_id", using: :btree
+
+  add_foreign_key "elders", "people"
   add_foreign_key "ministerial_servants", "people"
+  add_foreign_key "regular_pionners", "people"
 end

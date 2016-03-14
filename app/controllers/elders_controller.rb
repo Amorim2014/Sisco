@@ -1,4 +1,4 @@
-class EldersController < ApplicationController
+  class EldersController < ApplicationController
   before_action :set_elder, only: [:show, :edit, :update, :destroy]
 
   # GET /elders

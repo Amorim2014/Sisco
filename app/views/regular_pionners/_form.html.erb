@@ -16,12 +16,13 @@
   <% end %>
 
   <div class="form-group col-lg-12">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label :people_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, placeholder: 'Selecione o Pioneiro Regular', :class => 'form-control' %>
+    <%=select("regular_pionner", "id", Person.all.collect {|p| [p.name, p.id]}, {include_blank: 'Selecione o nome do Pioneiro Regular'}, {:class => 'form-control'})%>
     </div>
-    <%= error_span(@regular_pionner[:name]) %>
+    <%= error_span(@regular_pionner[:people_id]) %>
   </div>
+  
   <div class="form-group col-lg-6">
     <%= f.label :designation_date, :class => 'control-label' %>
     <div class="controls">

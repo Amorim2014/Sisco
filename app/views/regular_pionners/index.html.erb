@@ -5,8 +5,7 @@
 <table class="table table-striped table-bordered table-hover table-condensed">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:people_id) %></th>
       <th><%= model_class.human_attribute_name(:designation_date) %></th>
       <th><%= model_class.human_attribute_name(:removal_date) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,9 +15,8 @@
     <% @regular_pionners.each do |regular_pionner| %>
       <tr>
         <td><%= link_to regular_pionner.id, regular_pionner_path(regular_pionner) %></td>
-        <td><%= regular_pionner.name %></td>
         <td><%= l(regular_pionner.designation_date) %></td>
-        <td><%= l(regular_pionner.removal_date) %></td>
+        <td><%= regular_pionner.removal_date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_regular_pionner_path(regular_pionner), :class => 'btn btn-default btn-xs' %>

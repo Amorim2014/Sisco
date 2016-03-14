@@ -9,7 +9,7 @@ pt-BR:
         other: Pioneiros Regulares
       elder:
         one: Ancião
-        other: 
+        other: Anciãos
       ministerial_servant:
         one: Servo Ministerial
         other: Servos Ministeriais
@@ -29,7 +29,6 @@ pt-BR:
         state: Estado
         postal_code: Cep
       regular_pionner:
-        name: Nome
         designation_date: Data Designação
         removal_date: Data Remoção
       elder:
